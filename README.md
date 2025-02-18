@@ -80,17 +80,17 @@ JOIN Song s ON sa.track_id = s.track_id
 GROUP BY u.USERID
 ORDER BY song_count DESC;
 ```
-##ow to Use:
-##Clone the repository:
+## How to Use:
+## Clone the repository:
 ```bash
 git clone https://github.com/your-repo/spotify-music-data-management.git
 ```
-##Install dependencies:
+## Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-##Set up the PostgreSQL database and configure the connection settings in the config.py file.
-##Run the Streamlit app:
+## Set up the PostgreSQL database and configure the connection settings in the config.py file.
+## Run the Streamlit app:
 ```bash
 streamlit run app.py
 ```
