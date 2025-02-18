@@ -41,11 +41,13 @@ Here are some sample PostgreSQL queries used in the system:
 SELECT * FROM Playlist WHERE USERID = ?
 ```
 
-### Retrieve all the playlists that a specific user owns:
+- **Retrieve all the playlists that a specific user owns:**
 ```sql
 SELECT * FROM Playlist WHERE USERID = ?
-Retrieve the total number of songs in each playlist:
+
 ```
+
+- **Retrieve the total number of songs in each playlist:**
 ```sql
 
 SELECT playlist_id, COUNT(track_id) 
@@ -53,14 +55,14 @@ FROM Songs_Association
 GROUP BY playlist_id;
 ```
 
-#Retrieve the top 5 most popular songs:
+- **Retrieve the top 5 most popular songs:**
 ```sql
 SELECT * FROM Song 
 ORDER BY track_popularity DESC 
 LIMIT 5;
 ```
 
-#Retrieve artists who have albums released in the last year:
+- **Retrieve artists who have albums released in the last year:**
 ```sql
 SELECT artist_name, album_name, COUNT(track_id) 
 FROM Artist 
@@ -69,7 +71,7 @@ JOIN Song ON Album.album_id = Song.track_album
 WHERE release_date > NOW() - INTERVAL '1 year' 
 GROUP BY artist_name, album_name;
 ```
-#Identify Users with Most Songs Added to Playlists:
+- **Identify Users with Most Songs Added to Playlists:**
 ```sql
 SELECT u.USERID, COUNT(s.track_id) AS song_count
 FROM User u
@@ -78,7 +80,7 @@ JOIN Song s ON sa.track_id = s.track_id
 GROUP BY u.USERID
 ORDER BY song_count DESC;
 ```
-###How to Use:
+##ow to Use:
 ##Clone the repository:
 ```bash
 git clone https://github.com/your-repo/spotify-music-data-management.git
@@ -87,8 +89,8 @@ git clone https://github.com/your-repo/spotify-music-data-management.git
 ```bash
 pip install -r requirements.txt
 ```
-#Set up the PostgreSQL database and configure the connection settings in the config.py file.
-#Run the Streamlit app:
+##Set up the PostgreSQL database and configure the connection settings in the config.py file.
+##Run the Streamlit app:
 ```bash
 streamlit run app.py
 ```
